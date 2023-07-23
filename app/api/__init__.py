@@ -1,0 +1,20 @@
+from flask_restx import Api
+from flask import Blueprint
+
+from ..main.controller.lote_controller import api as lote_ns
+from ..main.controller.boleto_controller import api as boleto_ns
+from ..main.controller.upload_controller import api as upload_ns
+from ..main.controller.report_controller import api as report_ns
+
+api_bp = Blueprint('api', __name__)
+
+api = Api(api_bp,
+          title='FLASK RESTPLUS API BOILER-PLATE WITH JWT',
+          version='1.0',
+          description='a boilerplate for flask restplus web service'
+          )
+
+api.add_namespace(lote_ns, path='/lote')
+api.add_namespace(boleto_ns, path='/boleto')
+api.add_namespace(upload_ns, path='/file')
+api.add_namespace(report_ns, path='/report')
