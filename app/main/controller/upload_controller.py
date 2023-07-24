@@ -17,28 +17,12 @@ class Upload(Resource):
         data = request.files['file']
         if data.mimetype == 'text/csv':
             json = upload_helper.csv_upload(data.read())
-            # verify if data already inputed
-            upload_service.Lotes(json)
+            # verify if data already inputed (do it in the future)
+            upload_service.Boletos.bulk_create(json)
 
-            return {'status': 'success', 'message': 'csv received'}
+            return {'status': 'success', 'message': 'csv received and boletos created'}
         elif data.mimetype == 'application/pdf':
             json = upload_helper.pdf_to_dict(data.read())
-            # verify if data already inputed
-            upload_service.Boletos(json)
+            # create boletos (do it in the future)
+            # upload_service.Boletos(json)
             return {'status': 'success', 'message': 'pdf received'}
-
-
-# @api.route('/<public_id>')
-# @api.param('public_id', 'The Lote identifier')
-# @api.response(404, 'Lote not found.')
-# class Lote(Resource):
-#     @api.doc('get a lote')
-#     @api.marshal_with(_lote)
-#     def get(self, public_id):
-#         id = int(public_id)
-#         lote = LoteById.get(id)
-#         # return {'message': 'Ok', 'status': 'success'}
-#         if not lote:
-#             api.abort(404)
-#         else:
-#             return lote
