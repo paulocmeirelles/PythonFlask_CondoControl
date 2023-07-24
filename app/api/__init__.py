@@ -9,9 +9,9 @@ from ..main.controller.report_controller import api as report_ns
 api_bp = Blueprint('api', __name__)
 
 api = Api(api_bp,
-          title='FLASK RESTPLUS API BOILER-PLATE WITH JWT',
+          title='FLASK RESTPLUS API',
           version='1.0',
-          description='a boilerplate for flask restplus web service'
+          description='a for flask restplus web service'
           )
 
 api.add_namespace(lote_ns, path='/lote')

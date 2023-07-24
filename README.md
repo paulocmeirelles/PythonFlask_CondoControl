@@ -83,6 +83,10 @@ db.session.bulk_save_objects(lotes)
 db.session.commit()
 ```
 
+```
+flask run
+```
+
 Este projeto contem a coleção dos endpoints no postman para os endpoints.
 
 ### P.S.
@@ -172,6 +176,10 @@ Lote(name='0014')
 
 db.session.bulk_save_objects(lotes)
 db.session.commit()
+```
+
+```
+flask run
 ```
 
 This project contains a collection in postman to endpoints.
